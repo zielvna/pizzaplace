@@ -1,4 +1,4 @@
-import { fetchUser } from '../lib/functions';
+import { fetchUser } from '../lib/fetch';
 import { UserClient } from './UserClient';
 
 type Props = {

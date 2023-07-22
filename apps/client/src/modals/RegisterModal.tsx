@@ -48,7 +48,7 @@ export const RegisterModal = ({ isDashboard, onClose }: Props) => {
         if (response.status === 'success') {
             const userResponse = await getUser();
 
-            setUser(userResponse.data.user);
+            setUser(userResponse?.data?.user ?? null);
 
             if (isDashboard) {
                 router.push('/dashboard');

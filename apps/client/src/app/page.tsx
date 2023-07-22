@@ -4,7 +4,7 @@ import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { User } from '../components/User';
 import { Wrapper } from '../components/Wrapper';
-import { fetchPizzas, fetchSetup } from '../lib/functions';
+import { fetchPizzas, fetchSetup } from '../lib/fetch';
 import { AboutUsSection } from '../sections/AboutUsSection';
 import { HeroSection } from '../sections/HeroSection';
 import { MenuSection } from '../sections/MenuSection';

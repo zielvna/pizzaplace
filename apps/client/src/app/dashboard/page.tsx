@@ -1,13 +1,13 @@
 import { Header } from '@/src/components/Header';
 import { User } from '@/src/components/User';
 import { Wrapper } from '@/src/components/Wrapper';
-import { fetchPizzas, fetchSetup, fetchUser } from '@/src/lib/functions';
+import { fetchPizzas, fetchSetup, fetchUser } from '@/src/lib/fetch';
 import { PizzasSection } from '@/src/sections/PizzasSection';
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
-    title: 'PizzaPlace - Dashboard',
+    title: 'Dashboard',
 };
 
 export default async function Dashboard() {

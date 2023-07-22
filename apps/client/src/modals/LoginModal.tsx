@@ -44,10 +44,10 @@ export const LoginModal = ({ isDashboard, onClose }: Props) => {
 
         const response = await login(email, password, isDashboard ? 'admin' : 'user');
 
-        if (response.status === 'success') {
+        if (response?.status === 'success') {
             const userResponse = await getUser();
 
-            setUser(userResponse.data.user);
+            setUser(userResponse?.data?.user ?? null);
 
             if (isDashboard) {
                 router.push('/dashboard');

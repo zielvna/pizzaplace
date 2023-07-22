@@ -1,5 +1,5 @@
 import { twMerge } from 'tailwind-merge';
-import { fetchUser } from '../lib/functions';
+import { fetchUser } from '../lib/fetch';
 import { Menu } from './Menu';
 
 type Props = {

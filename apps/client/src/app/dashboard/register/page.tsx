@@ -1,10 +1,10 @@
-import { fetchSetup } from '@/src/lib/functions';
+import { fetchSetup } from '@/src/lib/fetch';
 import { RegisterModal } from '@/src/modals/RegisterModal';
 import { Metadata } from 'next';
 import { redirect } from 'next/navigation';
 
 export const metadata: Metadata = {
-    title: 'PizzaPlace - Dashboard',
+    title: 'Dashboard',
 };
 
 export default async function Register() {
