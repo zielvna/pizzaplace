@@ -16,3 +16,6 @@ yarn-error.log*
 
 # local env files
 .env
+
+# typescript
+/dist
