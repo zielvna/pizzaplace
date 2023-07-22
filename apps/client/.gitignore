@@ -5,6 +5,17 @@
 /.pnp
 .pnp.js
 
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+/.swc/
+
+# production
+/build
+
 # misc
 .DS_Store
 *.pem
@@ -15,7 +26,14 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env
+.env*.local
+
+# vercel
+.vercel
 
 # typescript
-/dist
+*.tsbuildinfo
+next-env.d.ts
+
+# turbo
+/.turbo

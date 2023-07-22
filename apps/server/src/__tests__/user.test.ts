@@ -16,10 +16,8 @@ const changePasswordInput = {
 describe('user', () => {
     beforeAll(async () => {
         const mongoServer = await MongoMemoryServer.create();
-
         await mongoose.connect(mongoServer.getUri());
-
-        app = createApp(uuidv4(), mongoServer.getUri());
+        app = createApp(uuidv4(), mongoServer.getUri(), '');
     });
 
     beforeEach(async () => {

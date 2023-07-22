@@ -10,7 +10,7 @@ const fetchApi = async (path: string, method: string, body?: object, session?: s
     let response;
 
     try {
-        response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/${path}`, {
+        response = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/${path}`, {
             method: method,
             credentials: 'include',
             headers: {

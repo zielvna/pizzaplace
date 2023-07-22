@@ -14,10 +14,10 @@ declare module 'express-session' {
     }
 }
 
-export const createApp = (sessionSecret: string, mongoUrl: string) => {
+export const createApp = (sessionSecret: string, mongoUrl: string, clientUrl: string) => {
     const app = express();
 
-    app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
+    app.use(cors({ origin: clientUrl, credentials: true }));
     app.use(compression());
     app.use(express.json());
     app.use(
