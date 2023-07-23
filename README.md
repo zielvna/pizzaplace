@@ -19,6 +19,7 @@ This is a pizzeria management app. As an admin you can create and edit existing 
 | Zustand               | State management          |
 | React Hook Form       | Forms                     |
 | Tailwind              | CSS                       |
+| Turborepo             | Monorepo tool             |
 | Figma                 | UI & UX design            |
 | NPM                   | Package manager           |
 | ESLint                | Linter                    |
@@ -45,19 +46,9 @@ git clone https://github.com:zielvna/pizzaplace.git
 
 Create env files in both folders.
 
-Install packages, build and start back-end:
+Install packages, build and start:
 
 ```bash
-cd server
-npm install
-npm run build
-npm run start
-```
-
-Install packages, build and start front-end:
-
-```bash
-cd ../client
 npm install
 npm run build
 npm run start
