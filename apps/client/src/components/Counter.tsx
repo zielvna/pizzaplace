@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
+import { useCounter } from '../hooks/useCounter';
 
 type Props = {
     scheme: keyof typeof schemas;
@@ -17,24 +17,15 @@ const schemas = {
 };
 
 export const Counter = ({ scheme, value, min, max, onChange = () => {} }: Props) => {
-    const [count, setCount] = useState(value);
-
-    const changeCounter = (shouldIncrement: boolean) => {
-        const newCount = shouldIncrement ? count + 1 : count - 1;
-
-        if (newCount >= min && newCount <= max) {
-            setCount(newCount);
-            onChange(newCount);
-        }
-    };
+    const [count, increment, decrement] = useCounter(value, min, max, onChange);
 
     return (
         <div className={twMerge('w-fit h-10 bg-white text-black font-bold rounded flex items-center', schemas[scheme])}>
-            <button className="w-4" onClick={() => changeCounter(false)}>
+            <button className="w-4" onClick={() => decrement()}>
                 -
             </button>
             <p className="w-8 font-medium px-4 flex justify-center">{count}</p>
-            <button className="w-4" onClick={() => changeCounter(true)}>
+            <button className="w-4" onClick={() => increment()}>
                 +
             </button>
         </div>
