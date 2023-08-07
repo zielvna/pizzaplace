@@ -128,7 +128,7 @@ export const AccountModal = ({ user, onClose }: Props) => {
                 <div className="mt-4">
                     <Title title="Orders" description="List of all your orders." />
                     <div className="mt-4">
-                        <Table items={[head, ...rows]} styles={styles} />
+                        <Table head={head} rows={rows} styles={styles} />
                     </div>
                 </div>
                 <div className="mt-4">

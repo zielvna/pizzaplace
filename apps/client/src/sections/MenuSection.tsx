@@ -48,7 +48,7 @@ export const MenuSection = ({ pizzas }: Props) => {
             {selectedPizza && <AddPizzaModal pizza={selectedPizza} onClose={() => setSelectedPizza(null)} />}
             <Title title="Menu" description="Check our pizza menu." />
             <div className="mt-4">
-                <Table items={[head, ...rows]} styles={styles} />
+                <Table head={head} rows={rows} styles={styles} />
             </div>
         </div>
     );

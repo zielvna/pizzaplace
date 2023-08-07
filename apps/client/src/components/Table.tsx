@@ -2,24 +2,38 @@
 
 type Props = {
     styles: string[];
-    items: React.ReactNode[][];
+    head: React.ReactNode[];
+    rows: React.ReactNode[][];
 };
 
-export const Table = ({ styles, items }: Props) => {
+export const Table = ({ styles, head, rows }: Props) => {
     return (
-        <div className="text-textGray">
-            {items.map((item, index) => (
-                <div key={index} className="bg-backgroundGray rounded-md flex mt-2 p-2">
-                    {item.map((cell, index) => (
-                        <div key={index} className={styles[index]}>
+        <table className="text-textGray w-full">
+            <thead>
+                <tr className="bg-backgroundGray rounded-md flex mt-2 p-2">
+                    {head.map((cell, index) => (
+                        <td key={index} className={styles[index]}>
                             {cell}
-                        </div>
+                        </td>
                     ))}
-                </div>
-            ))}
-            {items.length < 2 && (
-                <div className="bg-backgroundGray rounded-md mt-2 p-2 flex justify-center">no records</div>
-            )}
-        </div>
+                </tr>
+            </thead>
+            <tbody>
+                {rows.map((item, index) => (
+                    <tr key={index} className="bg-backgroundGray rounded-md flex mt-2 p-2">
+                        {item.map((cell, index) => (
+                            <td key={index} className={styles[index]}>
+                                {cell}
+                            </td>
+                        ))}
+                    </tr>
+                ))}
+                {rows.length === 0 && (
+                    <tr className="bg-backgroundGray rounded-md mt-2 p-2 flex justify-center">
+                        <td>no records</td>
+                    </tr>
+                )}
+            </tbody>
+        </table>
     );
 };

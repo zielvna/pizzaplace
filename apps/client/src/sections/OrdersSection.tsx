@@ -111,7 +111,7 @@ export const OrdersSection = ({ passOrders }: Props) => {
             <div className=" bg-white py-4 px-2 w-full rounded">
                 <Title title="Orders" description="Manage orders" />
                 <div className="mt-4">
-                    <Table items={[head, ...rows]} styles={styles} />
+                    <Table head={head} rows={rows} styles={styles} />
                 </div>
             </div>
         </div>

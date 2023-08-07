@@ -90,7 +90,7 @@ export const CartModal = ({ onClose }: Props) => {
         <Modal onClose={onClose} addBackground={true}>
             <Title title="Cart" description="Customize your order." />
             <div className="mt-4">
-                <Table items={[head, ...rows]} styles={styles} />
+                <Table head={head} rows={rows} styles={styles} />
             </div>
             <div className="mt-4">
                 <Title title="Delivery" description="Set your delivery details." />

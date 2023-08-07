@@ -46,7 +46,7 @@ export const ViewOrderModal = ({ order, onClose }: Props) => {
                 </p>
             </div>
             <div className="mt-4">
-                <Table items={[head, ...rows, lastRow]} styles={styles} />
+                <Table head={head} rows={rows} styles={styles} />
             </div>
             <div className="mt-4">
                 <p className="text-textGray">Status: {status}</p>
