@@ -6,7 +6,7 @@ type Props = Readonly<{
     children: React.ReactNode;
     scheme: keyof typeof schemas;
 }> &
-    JSX.IntrinsicElements['button'];
+    Omit<JSX.IntrinsicElements['button'], 'className'>;
 
 const schemas = {
     white: 'bg-white text-black',
