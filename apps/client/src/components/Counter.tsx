@@ -21,11 +21,11 @@ export const Counter = ({ scheme, value, min, max, onChange = () => {} }: Props)
 
     return (
         <div className={twMerge('w-fit h-10 bg-white text-black font-bold rounded flex items-center', schemas[scheme])}>
-            <button className="w-4" onClick={decrement}>
+            <button className="w-4" onClick={decrement} aria-label="Decrement value">
                 -
             </button>
             <p className="w-8 font-medium px-4 flex justify-center">{count}</p>
-            <button className="w-4" onClick={increment}>
+            <button className="w-4" onClick={increment} aria-label="Increment value">
                 +
             </button>
         </div>

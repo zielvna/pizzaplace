@@ -45,7 +45,7 @@ export const Menu = ({ isDashboard, passUser }: Props) => {
     const currentUser = user === undefined ? passUser : user;
 
     const menuContent = (
-        <ul className={twMerge('flex', !isOverlayToggled ? 'items-center' : 'flex-col items-center')}>
+        <ul className={twMerge('flex', !isOverlayToggled ? 'items-center' : 'flex-col items-center')} role="list">
             <li className={twMerge('m-2 cursor-pointer', !isDashboard && 'hidden')}>
                 <Link href="/dashboard" className="text-white font-medium" onClick={router.refresh}>
                     Pizzas
