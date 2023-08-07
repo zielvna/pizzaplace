@@ -25,10 +25,10 @@ export default async function Orders() {
 
     return (
         <User>
-            <Wrapper scheme="black">
+            <Wrapper variant="black">
                 <Header isDashboard={true} />
             </Wrapper>
-            <Wrapper scheme="gray">
+            <Wrapper variant="gray">
                 <div className="h-[calc(100vh-80px)]">
                     <OrdersSection passOrders={orders} />
                 </div>

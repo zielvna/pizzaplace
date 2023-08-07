@@ -24,16 +24,16 @@ export default async function Home() {
 
     return (
         <User>
-            <Wrapper scheme="primary">
+            <Wrapper variant="primary">
                 <Header isDashboard={false} />
                 <HeroSection />
             </Wrapper>
-            <Wrapper scheme="white">
+            <Wrapper variant="white">
                 <ProcessSection />
                 <MenuSection pizzas={pizzas} />
                 <AboutUsSection />
             </Wrapper>
-            <Wrapper scheme="primary">
+            <Wrapper variant="primary">
                 <Footer />
             </Wrapper>
         </User>
