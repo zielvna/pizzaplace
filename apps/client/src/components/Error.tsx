@@ -5,5 +5,9 @@ type Props = {
 };
 
 export const Error = ({ children }: Props) => {
-    return <p className="text-red text-xs font-medium">{children}</p>;
+    return (
+        <p className="text-red text-xs font-medium" role="alert">
+            {children}
+        </p>
+    );
 };
