@@ -10,12 +10,12 @@ type Props = {
 };
 
 export const Select = ({ items, selected, onChange = () => {} }: Props) => {
-    const [select, setSelect] = useState<number | null>(null);
+    const [select, setSelect] = useState<number>(0);
 
     useEffect(() => {
         const index = items.findIndex((element) => element === selected);
         setSelect(index >= 0 ? index : 0);
-    }, []); // eslint-disable-line
+    }, []);
 
     const onClick = (item: string, index: number) => {
         onChange(item);
