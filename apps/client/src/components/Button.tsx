@@ -4,19 +4,19 @@ import { twMerge } from 'tailwind-merge';
 
 type Props = Readonly<{
     children: React.ReactNode;
-    scheme: keyof typeof schemas;
+    variant: keyof typeof variants;
 }> &
     Omit<JSX.IntrinsicElements['button'], 'className'>;
 
-const schemas = {
+const variants = {
     white: 'bg-white text-black',
     primary: 'bg-primary text-white',
     black: 'bg-black text-white',
 };
 
-export const Button = ({ children, scheme, ...props }: Props) => {
+export const Button = ({ children, variant, ...props }: Props) => {
     return (
-        <button className={twMerge('h-10 px-8 font-medium rounded', schemas[scheme])} {...props}>
+        <button className={twMerge('h-10 px-8 font-medium rounded', variants[variant])} {...props}>
             {children}
         </button>
     );
