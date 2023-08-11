@@ -2,14 +2,14 @@ import { AddPizzaModal } from '@/src/modals/AddPizzaModal';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Slide, ToastContainer } from 'react-toastify';
-import { pizzas } from '../utils';
+import { pizzas } from '../__tests__/utils';
 
 const pizza = pizzas[0];
 
 const onCloseMock = jest.fn();
 const addToCartMock = jest.fn();
 
-jest.mock('../../store', () => ({
+jest.mock('../store', () => ({
     useStore: () => ({
         addToCart: addToCartMock,
     }),

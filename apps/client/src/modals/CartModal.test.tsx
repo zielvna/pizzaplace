@@ -2,14 +2,14 @@ import { CartModal } from '@/src/modals/CartModal';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Slide, ToastContainer } from 'react-toastify';
-import * as API from '../../lib/api';
-import { cartPizzas } from '../utils';
+import { cartPizzas } from '../__tests__/utils';
+import * as API from '../lib/api';
 
 const removeFromCartMock = jest.fn();
 const changeAmountMock = jest.fn();
 const clearCartMock = jest.fn();
 
-jest.mock('../../store', () => ({
+jest.mock('../store', () => ({
     useStore: () => ({
         pizzas: cartPizzas,
         removeFromCart: removeFromCartMock,
@@ -18,7 +18,7 @@ jest.mock('../../store', () => ({
     }),
 }));
 
-jest.mock('../../lib/api');
+jest.mock('../lib/api');
 
 const CartModalMock = () => {
     return (
@@ -73,7 +73,7 @@ describe('CartModal', () => {
     it('calls change amount function with when plus button is clicked and pizza amount is more than 0 and less than 5', () => {
         render(<CartModal />);
 
-        const plusButton = screen.getAllByRole('button', { name: /\+/ });
+        const plusButton = screen.getAllByRole('button', { name: /Increment value/ });
         fireEvent.click(plusButton[1]);
 
         expect(changeAmountMock).toHaveBeenCalled();
@@ -82,7 +82,7 @@ describe('CartModal', () => {
     it('calls remove from cart function when minus button is clicked and pizza amount is 0', () => {
         render(<CartModal />);
 
-        const minusButtons = screen.getAllByRole('button', { name: /-/ });
+        const minusButtons = screen.getAllByRole('button', { name: /Decrement value/ });
         fireEvent.click(minusButtons[1]);
 
         expect(removeFromCartMock).toHaveBeenCalled();

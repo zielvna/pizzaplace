@@ -2,10 +2,10 @@ import { AccountModal } from '@/src/modals/AccountModal';
 import '@testing-library/jest-dom';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Slide, ToastContainer } from 'react-toastify';
-import * as API from '../../lib/api';
-import { orders, user } from '../utils';
+import { orders, user } from '../__tests__/utils';
+import * as API from '../lib/api';
 
-jest.mock('../../lib/api');
+jest.mock('../lib/api');
 
 const AccountModalMock = () => {
     return (

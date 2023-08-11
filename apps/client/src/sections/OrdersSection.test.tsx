@@ -2,9 +2,9 @@ import { OrdersSection } from '@/src/sections/OrdersSection';
 import '@testing-library/jest-dom';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Slide, ToastContainer } from 'react-toastify';
-import { orders } from '../utils';
+import { orders } from '../__tests__/utils';
 
-jest.mock('../../lib/api', () => ({
+jest.mock('../lib/api', () => ({
     getAllOrders: async () => ({ status: 'success', data: { orders } }),
     deleteOrder: async () => ({ status: 'success', message: 'Order successfully deleted' }),
 }));

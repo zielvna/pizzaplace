@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { Select } from '../../components/Select';
+import { Select } from './Select';
 
 describe('Select', () => {
     it('highlights selected item', () => {

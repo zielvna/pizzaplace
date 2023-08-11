@@ -87,10 +87,10 @@ export const CreatePizzaModal = ({ onClose }: Props) => {
                 </div>
                 <div className="mt-4">
                     <div className="flex justify-between">
-                        <Button scheme="white" type="button" onClick={onClose}>
+                        <Button variant="white" type="button" onClick={onClose}>
                             Close
                         </Button>
-                        <Button scheme="primary">Create</Button>
+                        <Button variant="primary">Create</Button>
                     </div>
                     <div className={twMerge('text-right', !error && 'hidden')}>
                         <Error>{error}</Error>

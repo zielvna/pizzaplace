@@ -118,7 +118,7 @@ export const AccountModal = ({ user, onClose }: Props) => {
                     </div>
                     <div className="mt-4">
                         <div className="flex justify-end">
-                            <Button scheme="primary">Change password</Button>
+                            <Button variant="primary">Change password</Button>
                         </div>
                         <div className={twMerge('text-right', !error && 'hidden')}>
                             <Error>{error}</Error>
@@ -133,7 +133,7 @@ export const AccountModal = ({ user, onClose }: Props) => {
                 </div>
                 <div className="mt-4">
                     <div className="flex justify-between">
-                        <Button scheme="white" type="button" onClick={onClose}>
+                        <Button variant="white" type="button" onClick={onClose}>
                             Close
                         </Button>
                     </div>

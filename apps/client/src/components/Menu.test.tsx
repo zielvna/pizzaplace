@@ -2,9 +2,9 @@ import { Menu } from '@/src/components/Menu';
 import '@testing-library/jest-dom';
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Slide, ToastContainer } from 'react-toastify';
-import * as API from '../../lib/api';
-import * as Store from '../../store';
-import { cartPizzas, orders, user } from '../utils';
+import { cartPizzas, orders, user } from '../__tests__/utils';
+import * as API from '../lib/api';
+import * as Store from '../store';
 
 const setUserMock = jest.fn();
 
@@ -24,8 +24,8 @@ jest.mock('next/navigation', () => ({
     }),
 }));
 
-jest.mock('../../store');
-jest.mock('../../lib/api');
+jest.mock('../store');
+jest.mock('../lib/api');
 
 const MenuMock = () => {
     return (

@@ -132,10 +132,10 @@ export const CartModal = ({ onClose }: Props) => {
                 </div>
                 <div className="mt-4">
                     <div className="flex justify-between">
-                        <Button scheme="white" type="button" onClick={onClose}>
+                        <Button variant="white" type="button" onClick={onClose}>
                             Close
                         </Button>
-                        <Button scheme="primary" type="submit">
+                        <Button variant="primary" type="submit">
                             Order now
                         </Button>
                     </div>

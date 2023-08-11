@@ -4,7 +4,7 @@ import { fireEvent, render, screen } from '@testing-library/react';
 
 describe('Button', () => {
     it('shows passed text', () => {
-        render(<Button scheme="white">Test</Button>);
+        render(<Button variant="white">Test</Button>);
 
         const buttonElement = screen.getByRole('button', { name: /Test/ });
         expect(buttonElement).toBeInTheDocument();
@@ -14,7 +14,7 @@ describe('Button', () => {
         const onClickMock = jest.fn();
 
         render(
-            <Button scheme="white" onClick={onClickMock}>
+            <Button variant="white" onClick={onClickMock}>
                 Test
             </Button>
         );

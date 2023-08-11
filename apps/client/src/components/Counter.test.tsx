@@ -14,7 +14,7 @@ describe('Counter', () => {
     it('decreases value when minus button is clicked', () => {
         render(<Counter scheme="white" value={1} min={0} max={3} />);
 
-        const decrementButton = screen.getByRole('button', { name: /-/ });
+        const decrementButton = screen.getByRole('button', { name: /Decrement value/ });
         fireEvent.click(decrementButton);
 
         const valueElement = screen.getByText(/0/i);
@@ -24,7 +24,7 @@ describe('Counter', () => {
     it('increases value when plus button is clicked', () => {
         render(<Counter scheme="white" value={1} min={0} max={3} />);
 
-        const incrementButton = screen.getByRole('button', { name: /\+/ });
+        const incrementButton = screen.getByRole('button', { name: /Increment value/ });
         fireEvent.click(incrementButton);
 
         const valueElement = screen.getByText(/2/i);
@@ -34,7 +34,7 @@ describe('Counter', () => {
     it('does not decrease value when minus button is clicked and value is equal to min', () => {
         render(<Counter scheme="white" value={0} min={0} max={3} />);
 
-        const decrementButton = screen.getByRole('button', { name: /-/ });
+        const decrementButton = screen.getByRole('button', { name: /Decrement value/ });
         fireEvent.click(decrementButton);
 
         const valueElement = screen.getByText(/0/i);
@@ -44,7 +44,7 @@ describe('Counter', () => {
     it('does not increase value when plus button is clicked and value is equal to max', () => {
         render(<Counter scheme="white" value={3} min={0} max={3} />);
 
-        const incrementButton = screen.getByRole('button', { name: /\+/ });
+        const incrementButton = screen.getByRole('button', { name: /Increment value/ });
         fireEvent.click(incrementButton);
 
         const valueElement = screen.getByText(/3/i);
@@ -56,7 +56,7 @@ describe('Counter', () => {
 
         render(<Counter scheme="white" value={2} min={0} max={3} onChange={onChangeMock} />);
 
-        const decrementButton = screen.getByRole('button', { name: /-/ });
+        const decrementButton = screen.getByRole('button', { name: /Decrement value/ });
         fireEvent.click(decrementButton);
 
         expect(onChangeMock).toHaveBeenCalledWith(1);

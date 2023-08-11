@@ -1,7 +1,7 @@
 import { ViewOrderModal } from '@/src/modals/ViewOrderModal';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { orders } from '../utils';
+import { orders } from '../__tests__/utils';
 
 const order = orders[0];
 

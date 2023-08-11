@@ -2,9 +2,9 @@ import { PizzasSection } from '@/src/sections/PizzasSection';
 import '@testing-library/jest-dom';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { Slide, ToastContainer } from 'react-toastify';
-import { pizzas } from '../utils';
+import { pizzas } from '../__tests__/utils';
 
-jest.mock('../../lib/api', () => ({
+jest.mock('../lib/api', () => ({
     getPizzas: async () => ({ status: 'success', data: { pizzas } }),
     deletePizza: async () => ({ status: 'success', message: 'Pizza successfully deleted' }),
 }));

@@ -2,12 +2,12 @@ import { EditOrderModal } from '@/src/modals/EditOrderModal';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Slide, ToastContainer } from 'react-toastify';
-import * as API from '../../lib/api';
-import { orders } from '../utils';
+import { orders } from '../__tests__/utils';
+import * as API from '../lib/api';
 
 const order = orders[0];
 
-jest.mock('../../lib/api');
+jest.mock('../lib/api');
 
 const EditOrderModalMock = () => {
     return (

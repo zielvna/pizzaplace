@@ -36,7 +36,7 @@ export const UserClient = ({ passUser, children }: Props) => {
                 data-testid="switch-button-container"
             >
                 <Link href={isDashboard ? '/' : '/dashboard'} onClick={() => router.refresh()}>
-                    <Button scheme={isDashboard ? 'primary' : 'black'}>{isDashboard ? 'Home' : 'Dashboard'}</Button>
+                    <Button variant={isDashboard ? 'primary' : 'black'}>{isDashboard ? 'Home' : 'Dashboard'}</Button>
                 </Link>
             </div>
         </>

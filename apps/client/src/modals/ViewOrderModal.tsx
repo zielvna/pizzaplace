@@ -52,7 +52,7 @@ export const ViewOrderModal = ({ order, onClose }: Props) => {
                 <p className="text-textGray">Status: {status}</p>
             </div>
             <div className="mt-4">
-                <Button scheme="white" type="button" onClick={onClose}>
+                <Button variant="white" type="button" onClick={onClose}>
                     Close
                 </Button>
             </div>

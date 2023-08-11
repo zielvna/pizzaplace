@@ -2,11 +2,11 @@ import { UserClient } from '@/src/components/UserClient';
 import '@testing-library/jest-dom';
 import { act, render, screen } from '@testing-library/react';
 import * as NextNavigation from 'next/navigation';
-import { admin, user } from '../utils';
+import { admin, user } from '../__tests__/utils';
 
 const setUserMock = jest.fn();
 
-jest.mock('../../store', () => ({
+jest.mock('../store', () => ({
     useStore: () => ({
         setUser: setUserMock,
     }),

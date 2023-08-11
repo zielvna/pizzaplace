@@ -14,7 +14,7 @@ export const HeroSection = () => {
                     Our pizza is always made with fresh ingredients.
                 </p>
                 <div className="mt-4">
-                    <Button scheme="white" onClick={() => document.querySelector('#menu')?.scrollIntoView()}>
+                    <Button variant="white" onClick={() => document.querySelector('#menu')?.scrollIntoView()}>
                         Order now
                     </Button>
                 </div>

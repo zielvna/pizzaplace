@@ -82,7 +82,7 @@ export const PizzasSection = ({ passPizzas }: Props) => {
             <div className=" bg-white py-4 px-2 w-full rounded">
                 <Title title="Pizzas" description="Manage pizzas" />
                 <div className="mt-4">
-                    <Button scheme="primary" onClick={() => setIsCreatePizzaModalShown(true)}>
+                    <Button variant="primary" onClick={() => setIsCreatePizzaModalShown(true)}>
                         Create pizza
                     </Button>
                 </div>

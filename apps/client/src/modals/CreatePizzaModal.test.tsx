@@ -2,9 +2,9 @@ import { CreatePizzaModal } from '@/src/modals/CreatePizzaModal';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Slide, ToastContainer } from 'react-toastify';
-import * as API from '../../lib/api';
+import * as API from '../lib/api';
 
-jest.mock('../../lib/api');
+jest.mock('../lib/api');
 
 const CreatePizzaModalMock = () => {
     return (

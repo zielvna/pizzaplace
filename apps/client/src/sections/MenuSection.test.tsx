@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
-import { MenuSection } from '../../sections/MenuSection';
-import { pizzas } from '../utils';
+import { pizzas } from '../__tests__/utils';
+import { MenuSection } from './MenuSection';
 
 describe('MenuSection', () => {
     it('shows passed pizzas', () => {

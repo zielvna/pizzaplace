@@ -2,12 +2,12 @@ import { EditPizzaModal } from '@/src/modals/EditPizzaModal';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Slide, ToastContainer } from 'react-toastify';
-import * as API from '../../lib/api';
-import { pizzas } from '../utils';
+import { pizzas } from '../__tests__/utils';
+import * as API from '../lib/api';
 
 const pizza = pizzas[0];
 
-jest.mock('../../lib/api');
+jest.mock('../lib/api');
 
 const EditPizzaModalMock = () => {
     return (

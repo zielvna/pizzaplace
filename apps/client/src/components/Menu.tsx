@@ -84,7 +84,7 @@ export const Menu = ({ isDashboard, passUser }: Props) => {
                 className={twMerge('ml-2', !isDashboard && !currentUser ? 'block' : 'hidden')}
                 onClick={() => setIsRegisterModalShown(true)}
             >
-                <Button scheme="white">Register</Button>
+                <Button variant="white">Register</Button>
             </li>
         </ul>
     );

@@ -83,11 +83,11 @@ export const RegisterModal = ({ isDashboard, onClose }: Props) => {
                 <div className="mt-4">
                     <div className={twMerge('flex', isDashboard ? 'justify-end' : 'justify-between')}>
                         <div className={twMerge(isDashboard && 'hidden')}>
-                            <Button scheme="white" type="button" onClick={onClose}>
+                            <Button variant="white" type="button" onClick={onClose}>
                                 Close
                             </Button>
                         </div>
-                        <Button scheme="primary">Register</Button>
+                        <Button variant="primary">Register</Button>
                     </div>
                     <div className={twMerge('text-right', !error && 'hidden')}>
                         <Error>{error}</Error>

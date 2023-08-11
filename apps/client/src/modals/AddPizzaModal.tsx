@@ -75,10 +75,10 @@ export const AddPizzaModal = ({ pizza, onClose }: Props) => {
             </div>
             <div className="mt-4">
                 <div className="flex justify-between">
-                    <Button scheme="white" type="button" onClick={onClose}>
+                    <Button variant="white" type="button" onClick={onClose}>
                         Close
                     </Button>
-                    <Button scheme="primary" onClick={onClick}>
+                    <Button variant="primary" onClick={onClick}>
                         Add to cart ({getPrice() * amount} pln)
                     </Button>
                 </div>

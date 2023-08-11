@@ -13,14 +13,14 @@ const additionalItems = [
 
 describe('Table', () => {
     it('shows no records text', () => {
-        render(<Table items={[items]} styles={styles} />);
+        render(<Table head={items} rows={[]} styles={styles} />);
 
         const noRecordsElement = screen.getByText(/no records/);
         expect(noRecordsElement).toBeInTheDocument();
     });
 
     it('shows passed items and does not show no records text', () => {
-        render(<Table items={[items, ...additionalItems]} styles={styles} />);
+        render(<Table head={items} rows={additionalItems} styles={styles} />);
 
         const noRecordsElement = screen.queryByText(/no records/);
         expect(noRecordsElement).not.toBeInTheDocument();

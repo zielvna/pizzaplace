@@ -1,13 +1,13 @@
-import { RegisterModal } from '@/src/modals/RegisterModal';
+import { LoginModal } from '@/src/modals/LoginModal';
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Slide, ToastContainer } from 'react-toastify';
-import * as API from '../../lib/api';
-import { user } from '../utils';
+import { user } from '../__tests__/utils';
+import * as API from '../lib/api';
 
 const routerPushMock = jest.fn();
 
-jest.mock('../../lib/api');
+jest.mock('../lib/api');
 
 jest.mock('next/navigation', () => ({
     useRouter: () => ({
@@ -25,10 +25,10 @@ jest.mock('next/navigation', () => ({
     }),
 }));
 
-const RegisterModalMock = ({ isDashboard }: { isDashboard: boolean }) => {
+const LoginModalMock = ({ isDashboard }: { isDashboard: boolean }) => {
     return (
         <>
-            <RegisterModal isDashboard={isDashboard} />
+            <LoginModal isDashboard={isDashboard} />
             <ToastContainer
                 position="bottom-left"
                 hideProgressBar={true}
@@ -40,12 +40,9 @@ const RegisterModalMock = ({ isDashboard }: { isDashboard: boolean }) => {
     );
 };
 
-describe('RegisterModal', () => {
+describe('LoginModal', () => {
     beforeEach(() => {
-        jest.spyOn(API, 'register').mockImplementation(async () => ({
-            status: 'error',
-            message: 'Invalid data format',
-        }));
+        jest.spyOn(API, 'login').mockImplementation(async () => ({ status: 'error', message: 'Invalid data format' }));
         jest.spyOn(API, 'getUser').mockImplementation(async () => ({ data: { user } }));
     });
 
@@ -56,7 +53,7 @@ describe('RegisterModal', () => {
     it('calls on close function when close button is clicked', async () => {
         const onCloseMock = jest.fn();
 
-        render(<RegisterModal isDashboard={false} onClose={onCloseMock} />);
+        render(<LoginModal isDashboard={false} onClose={onCloseMock} />);
 
         const closeButton = screen.getByRole('button', { name: /Close/ });
         fireEvent.click(closeButton);
@@ -64,18 +61,18 @@ describe('RegisterModal', () => {
         expect(onCloseMock).toHaveBeenCalled();
     });
 
-    it('shows 2 validation errors when register button is clicked and fields are empty', async () => {
-        render(<RegisterModal isDashboard={false} />);
+    it('shows 2 validation errors when login button is clicked and fields are empty', async () => {
+        render(<LoginModal isDashboard={false} />);
 
-        const registerButton = screen.getByRole('button', { name: /Register/ });
-        fireEvent.click(registerButton);
+        const loginButton = screen.getByRole('button', { name: /Login/ });
+        fireEvent.click(loginButton);
 
         expect(await screen.findByText(/must contain/)).toBeInTheDocument();
         expect(await screen.findByText(/Invalid email/)).toBeInTheDocument();
     });
 
-    it('shows invalid data format error when register button is clicked and server returns error', async () => {
-        render(<RegisterModal isDashboard={false} />);
+    it('shows invalid data format error when login button is clicked and server returns error', async () => {
+        render(<LoginModal isDashboard={false} />);
 
         const emailInput = screen.getByPlaceholderText(/E-mail/);
         fireEvent.change(emailInput, { target: { value: 'user@user.com' } });
@@ -83,18 +80,19 @@ describe('RegisterModal', () => {
         const passwordInput = screen.getByPlaceholderText(/Password/);
         fireEvent.change(passwordInput, { target: { value: 'user' } });
 
-        const registerButton = screen.getByRole('button', { name: /Register/ });
-        fireEvent.click(registerButton);
+        const loginButton = screen.getByRole('button', { name: /Login/ });
+        fireEvent.click(loginButton);
 
         expect(await screen.findByText(/Invalid data format/)).toBeInTheDocument();
     });
 
-    it('shows account successfully registered toast when register button is clicked and server returns success', async () => {
-        jest.spyOn(API, 'register').mockImplementation(async () => {
-            return { status: 'success', message: 'Account successfully registered' };
-        });
+    it('shows account successfully logged in toast when login button is clicked and server returns success', async () => {
+        jest.spyOn(API, 'login').mockImplementation(async () => ({
+            status: 'success',
+            message: 'Account successfully logged in',
+        }));
 
-        render(<RegisterModalMock isDashboard={false} />);
+        render(<LoginModalMock isDashboard={false} />);
 
         const emailInput = screen.getByPlaceholderText(/E-mail/);
         fireEvent.change(emailInput, { target: { value: 'user@user.com' } });
@@ -102,18 +100,19 @@ describe('RegisterModal', () => {
         const passwordInput = screen.getByPlaceholderText(/Password/);
         fireEvent.change(passwordInput, { target: { value: 'user' } });
 
-        const registerButton = screen.getByRole('button', { name: /Register/ });
-        fireEvent.click(registerButton);
+        const loginButton = screen.getByRole('button', { name: /Login/ });
+        fireEvent.click(loginButton);
 
-        expect(await screen.findByText(/Account successfully registered/)).toBeInTheDocument();
+        expect(await screen.findByText(/Account successfully logged in/)).toBeInTheDocument();
     });
 
-    it('shows account successfully registered toast and calls router push when register button is clicked, is dashboard is true and server returns success', async () => {
-        jest.spyOn(API, 'register').mockImplementation(async () => {
-            return { status: 'success', message: 'Account successfully registered' };
-        });
+    it('shows account successfully logged in toast and calls router push when login button is clicked, is dashboard is true and server returns success', async () => {
+        jest.spyOn(API, 'login').mockImplementation(async () => ({
+            status: 'success',
+            message: 'Account successfully logged in',
+        }));
 
-        render(<RegisterModalMock isDashboard={true} />);
+        render(<LoginModalMock isDashboard={true} />);
 
         const emailInput = screen.getByPlaceholderText(/E-mail/);
         fireEvent.change(emailInput, { target: { value: 'user@user.com' } });
@@ -121,10 +120,10 @@ describe('RegisterModal', () => {
         const passwordInput = screen.getByPlaceholderText(/Password/);
         fireEvent.change(passwordInput, { target: { value: 'user' } });
 
-        const registerButton = screen.getByRole('button', { name: /Register/ });
-        fireEvent.click(registerButton);
+        const loginButton = screen.getByRole('button', { name: /Login/ });
+        fireEvent.click(loginButton);
 
-        expect(await screen.findByText(/Account successfully registered/)).toBeInTheDocument();
+        expect(await screen.findByText(/Account successfully logged in/)).toBeInTheDocument();
         expect(routerPushMock).toHaveBeenCalledWith('/dashboard');
     });
 });
