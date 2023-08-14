@@ -5,6 +5,7 @@
 @layer base {
     html {
         @apply scroll-smooth;
+        font-family: Poppins, system-ui, sans-serif;
     }
 
     body {
